@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import {
   ChevronDown,
   MapPin,
@@ -9,36 +9,36 @@ import {
   Search,
   ShoppingBag,
   X,
-} from "lucide-react";
-import { useShopCart } from "./shop-context";
-import type { ReactNode } from "react";
+} from 'lucide-react';
+import { useShopCart } from './shop-context';
+import type { ReactNode } from 'react';
 
 const MENU = {
   men: [
-    { label: "Shirts", href: "/#catalog" },
-    { label: "T-Shirts & Polos", href: "/#catalog" },
-    { label: "Jeans & Denim", href: "/#catalog" },
-    { label: "Trousers & Chinos", href: "/#catalog" },
-    { label: "Ethnic Wear", href: "/#catalog" },
-    { label: "Accessories", href: "/#catalog" },
+    { label: 'Shirts', href: '/#catalog' },
+    { label: 'T-Shirts & Polos', href: '/#catalog' },
+    { label: 'Jeans & Denim', href: '/#catalog' },
+    { label: 'Trousers & Chinos', href: '/#catalog' },
+    { label: 'Ethnic Wear', href: '/#catalog' },
+    { label: 'Accessories', href: '/#catalog' },
   ],
   women: [
-    { label: "Kurtis & Suits", href: "/#catalog" },
-    { label: "Tops & Tunics", href: "/#catalog" },
-    { label: "Dresses", href: "/#catalog" },
-    { label: "Jeans & Jeggings", href: "/#catalog" },
-    { label: "Sarees", href: "/#catalog" },
-    { label: "Accessories", href: "/#catalog" },
+    { label: 'Kurtis & Suits', href: '/#catalog' },
+    { label: 'Tops & Tunics', href: '/#catalog' },
+    { label: 'Dresses', href: '/#catalog' },
+    { label: 'Jeans & Jeggings', href: '/#catalog' },
+    { label: 'Sarees', href: '/#catalog' },
+    { label: 'Accessories', href: '/#catalog' },
   ],
 };
 
 const colors = {
-  navy: "#1a1a2e",
-  red: "#d33",
-  muted: "#6b7280",
-  line: "#e7e9ee",
-  bg: "#f4f5f7",
-  soft: "#fafbfc",
+  navy: '#1a1a2e',
+  red: '#d33',
+  muted: '#6b7280',
+  line: '#e7e9ee',
+  bg: '#f4f5f7',
+  soft: '#fafbfc',
 };
 
 /** Time between each row's animation start (ms) */
@@ -55,8 +55,8 @@ function useIsMobile(breakpoint = 900) {
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < breakpoint);
     check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
   }, [breakpoint]);
   return isMobile;
 }
@@ -82,16 +82,16 @@ function RollRow({
   return (
     <li
       style={{
-        listStyle: "none",
-        transformOrigin: "center top",
+        listStyle: 'none',
+        transformOrigin: 'center top',
         transform: open
-          ? "perspective(1100px) rotateX(0deg)"
-          : "perspective(1100px) rotateX(-92deg)",
+          ? 'perspective(1100px) rotateX(0deg)'
+          : 'perspective(1100px) rotateX(-92deg)',
         opacity: open ? 1 : 0,
         transition: `transform ${ITEM_DURATION}ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms, opacity 240ms ease ${delay}ms`,
-        willChange: "transform, opacity",
-        backfaceVisibility: "hidden",
-        WebkitBackfaceVisibility: "hidden",
+        willChange: 'transform, opacity',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden',
       }}
     >
       {children}
@@ -143,21 +143,21 @@ function NavDropdown({
         href={item.href}
         onClick={onNavigate}
         style={{
-          display: "block",
-          padding: isMobile ? "11px 8px" : "10px 12px",
+          display: 'block',
+          padding: isMobile ? '11px 8px' : '10px 12px',
           fontSize: isMobile ? 14 : 13.5,
-          color: "#3b4252",
-          textDecoration: "none",
+          color: '#3b4252',
+          textDecoration: 'none',
           borderRadius: 8,
-          transition: "background 0.15s ease, color 0.15s ease",
+          transition: 'background 0.15s ease, color 0.15s ease',
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.background = colors.soft;
           e.currentTarget.style.color = colors.red;
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = "transparent";
-          e.currentTarget.style.color = "#3b4252";
+          e.currentTarget.style.background = 'transparent';
+          e.currentTarget.style.color = '#3b4252';
         }}
       >
         {item.label}
@@ -173,40 +173,40 @@ function NavDropdown({
           type="button"
           onClick={() => setOpen((v) => !v)}
           style={{
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "14px 4px",
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '14px 4px',
             border: 0,
-            background: "transparent",
+            background: 'transparent',
             fontSize: 15,
             fontWeight: 600,
             color: colors.navy,
-            cursor: "pointer",
+            cursor: 'pointer',
           }}
         >
           {label}
           <ChevronDown
             size={16}
             style={{
-              transition: "transform 0.3s cubic-bezier(0.4,0,0.2,1)",
-              transform: open ? "rotate(180deg)" : "rotate(0deg)",
+              transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)',
+              transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
             }}
           />
         </button>
 
         <div
           style={{
-            overflow: "hidden",
+            overflow: 'hidden',
             maxHeight: panelMaxHeight,
             transition: `max-height ${panelDuration}ms cubic-bezier(0.4,0,0.2,1)`,
           }}
         >
           <ul
             style={{
-              listStyle: "none",
-              padding: "4px 4px 12px 8px",
+              listStyle: 'none',
+              padding: '4px 4px 12px 8px',
               margin: 0,
             }}
           >
@@ -222,7 +222,7 @@ function NavDropdown({
     <div
       onMouseEnter={openNow}
       onMouseLeave={closeSoon}
-      style={{ position: "relative" }}
+      style={{ position: 'relative' }}
     >
       <button
         type="button"
@@ -230,26 +230,26 @@ function NavDropdown({
         aria-expanded={open}
         onClick={() => (open ? setOpen(false) : openNow())}
         style={{
-          display: "inline-flex",
-          alignItems: "center",
+          display: 'inline-flex',
+          alignItems: 'center',
           gap: 5,
-          padding: "8px 10px",
+          padding: '8px 10px',
           border: 0,
-          background: "transparent",
+          background: 'transparent',
           fontSize: 13.5,
           fontWeight: 600,
           color: open ? colors.red : colors.navy,
-          cursor: "pointer",
+          cursor: 'pointer',
           borderRadius: 8,
-          transition: "color 0.15s ease",
+          transition: 'color 0.15s ease',
         }}
       >
         {label}
         <ChevronDown
           size={14}
           style={{
-            transition: "transform 0.3s cubic-bezier(0.4,0,0.2,1)",
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+            transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)',
+            transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
           }}
         />
       </button>
@@ -258,29 +258,29 @@ function NavDropdown({
           pointer never leaves the parent when crossing to the items. */}
       <div
         style={{
-          position: "absolute",
-          top: "100%",
+          position: 'absolute',
+          top: '100%',
           left: 0,
           paddingTop: 6,
           minWidth: 240,
-          pointerEvents: open ? "auto" : "none",
+          pointerEvents: open ? 'auto' : 'none',
           zIndex: 60,
         }}
       >
         <div
           style={{
-            overflow: "hidden",
+            overflow: 'hidden',
             maxHeight: Math.max(0, panelMaxHeight - 6),
             transition: `max-height ${panelDuration}ms cubic-bezier(0.4,0,0.2,1)`,
-            background: open ? "#fff" : "transparent",
-            border: open ? `1px solid ${colors.line}` : "1px solid transparent",
+            background: open ? '#fff' : 'transparent',
+            border: open ? `1px solid ${colors.line}` : '1px solid transparent',
             borderRadius: 12,
             boxShadow: open
-              ? "0 20px 44px -22px rgba(20,20,40,0.35)"
-              : "0 0 0 rgba(0,0,0,0)",
+              ? '0 20px 44px -22px rgba(20,20,40,0.35)'
+              : '0 0 0 rgba(0,0,0,0)',
           }}
         >
-          <ul style={{ listStyle: "none", padding: "8px 8px 12px", margin: 0 }}>
+          <ul style={{ listStyle: 'none', padding: '8px 8px 12px', margin: 0 }}>
             {rows}
           </ul>
         </div>
@@ -302,41 +302,41 @@ export function ShopShell({ children }: { children: ReactNode }) {
         setMenuOpen(false);
       }
     }
-    document.addEventListener("mousedown", onClick);
-    return () => document.removeEventListener("mousedown", onClick);
+    document.addEventListener('mousedown', onClick);
+    return () => document.removeEventListener('mousedown', onClick);
   }, [menuOpen]);
 
   useEffect(() => {
-    if (typeof document === "undefined") return;
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (typeof document === 'undefined') return;
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [menuOpen]);
 
   const iconLinkStyle: React.CSSProperties = {
-    display: "inline-flex",
-    alignItems: "center",
+    display: 'inline-flex',
+    alignItems: 'center',
     gap: 8,
-    padding: "8px 12px",
+    padding: '8px 12px',
     borderRadius: 10,
     color: colors.navy,
     fontSize: 13,
     fontWeight: 600,
     lineHeight: 1,
-    textDecoration: "none",
-    transition: "background 0.15s ease",
-    position: "relative",
+    textDecoration: 'none',
+    transition: 'background 0.15s ease',
+    position: 'relative',
   };
 
   const iconBoxStyle: React.CSSProperties = {
-    position: "relative",
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
+    position: 'relative',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: 22,
     height: 22,
-    flex: "0 0 22px",
+    flex: '0 0 22px',
   };
 
   return (
@@ -345,12 +345,12 @@ export function ShopShell({ children }: { children: ReactNode }) {
       <div
         style={{
           background: colors.navy,
-          color: "#fff",
-          textAlign: "center",
+          color: '#fff',
+          textAlign: 'center',
           fontSize: 12,
           fontWeight: 600,
-          letterSpacing: "0.02em",
-          padding: "9px 14px",
+          letterSpacing: '0.02em',
+          padding: '9px 14px',
         }}
       >
         Kuttupur, Jaunpur se aapke ghar tak · Fair prices. Fresh styles. COD
@@ -359,22 +359,22 @@ export function ShopShell({ children }: { children: ReactNode }) {
 
       <header
         style={{
-          position: "sticky",
+          position: 'sticky',
           top: 0,
           zIndex: 50,
-          background: "rgba(255,255,255,0.92)",
-          backdropFilter: "saturate(180%) blur(10px)",
-          WebkitBackdropFilter: "saturate(180%) blur(10px)",
+          background: 'rgba(255,255,255,0.92)',
+          backdropFilter: 'saturate(180%) blur(10px)',
+          WebkitBackdropFilter: 'saturate(180%) blur(10px)',
           borderBottom: `1px solid ${colors.line}`,
         }}
       >
         <div
           style={{
             maxWidth: 1200,
-            margin: "0 auto",
-            padding: isMobile ? "10px 16px" : "12px 24px",
-            display: "flex",
-            alignItems: "center",
+            margin: '0 auto',
+            padding: isMobile ? '10px 16px' : '12px 24px',
+            display: 'flex',
+            alignItems: 'center',
             gap: 16,
           }}
         >
@@ -383,26 +383,26 @@ export function ShopShell({ children }: { children: ReactNode }) {
             href="/"
             aria-label="Vishwa Enterprises home"
             style={{
-              display: "inline-flex",
-              alignItems: "center",
+              display: 'inline-flex',
+              alignItems: 'center',
               gap: 10,
-              textDecoration: "none",
+              textDecoration: 'none',
               color: colors.navy,
-              flex: "0 0 auto",
+              flex: '0 0 auto',
             }}
           >
             <span
               style={{
-                display: "grid",
-                placeItems: "center",
+                display: 'grid',
+                placeItems: 'center',
                 width: 38,
                 height: 38,
                 borderRadius: 10,
                 background: colors.navy,
-                color: "#fff",
+                color: '#fff',
                 fontWeight: 800,
                 fontSize: 18,
-                letterSpacing: "-0.02em",
+                letterSpacing: '-0.02em',
               }}
             >
               V
@@ -411,7 +411,7 @@ export function ShopShell({ children }: { children: ReactNode }) {
               style={{
                 fontSize: 13,
                 fontWeight: 800,
-                letterSpacing: "0.06em",
+                letterSpacing: '0.06em',
                 lineHeight: 1.15,
               }}
             >
@@ -426,17 +426,13 @@ export function ShopShell({ children }: { children: ReactNode }) {
             <nav
               aria-label="Main navigation"
               style={{
-                display: "flex",
-                alignItems: "center",
+                display: 'flex',
+                alignItems: 'center',
                 gap: 4,
                 marginLeft: 12,
               }}
             >
-              <NavDropdown
-                label="Men's wear"
-                items={MENU.men}
-                isMobile={false}
-              />
+              <NavDropdown label="Men's wear" items={MENU.men} isMobile={false} />
               <NavDropdown
                 label="Women's wear"
                 items={MENU.women}
@@ -448,21 +444,21 @@ export function ShopShell({ children }: { children: ReactNode }) {
           {/* Right actions */}
           <div
             style={{
-              marginLeft: "auto",
-              display: "flex",
-              alignItems: "center",
+              marginLeft: 'auto',
+              display: 'flex',
+              alignItems: 'center',
               gap: 6,
             }}
           >
             <Link
-              href="/search"
+              href="/#catalog"
               aria-label="Search products"
               style={iconLinkStyle}
               onMouseEnter={(e) =>
                 (e.currentTarget.style.background = colors.soft)
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.background = "transparent")
+                (e.currentTarget.style.background = 'transparent')
               }
             >
               <span style={iconBoxStyle}>
@@ -479,7 +475,7 @@ export function ShopShell({ children }: { children: ReactNode }) {
                 (e.currentTarget.style.background = colors.soft)
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.background = "transparent")
+                (e.currentTarget.style.background = 'transparent')
               }
             >
               <span style={iconBoxStyle}>
@@ -487,21 +483,21 @@ export function ShopShell({ children }: { children: ReactNode }) {
                 {count > 0 && (
                   <span
                     style={{
-                      position: "absolute",
+                      position: 'absolute',
                       top: -6,
                       right: -8,
                       minWidth: 17,
                       height: 17,
-                      padding: "0 4px",
+                      padding: '0 4px',
                       borderRadius: 999,
                       background: colors.red,
-                      color: "#fff",
+                      color: '#fff',
                       fontSize: 10,
                       fontWeight: 700,
-                      lineHeight: "17px",
-                      textAlign: "center",
-                      boxShadow: "0 0 0 2px #fff",
-                      pointerEvents: "none",
+                      lineHeight: '17px',
+                      textAlign: 'center',
+                      boxShadow: '0 0 0 2px #fff',
+                      pointerEvents: 'none',
                     }}
                   >
                     {count}
@@ -518,16 +514,16 @@ export function ShopShell({ children }: { children: ReactNode }) {
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen(true)}
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   width: 40,
                   height: 40,
                   border: `1px solid ${colors.line}`,
                   borderRadius: 10,
-                  background: "#fff",
+                  background: '#fff',
                   color: colors.navy,
-                  cursor: "pointer",
+                  cursor: 'pointer',
                 }}
               >
                 <Menu size={20} />
@@ -543,38 +539,38 @@ export function ShopShell({ children }: { children: ReactNode }) {
           <div
             onClick={() => setMenuOpen(false)}
             style={{
-              position: "fixed",
+              position: 'fixed',
               inset: 0,
-              background: "rgba(20,20,40,0.45)",
+              background: 'rgba(20,20,40,0.45)',
               opacity: menuOpen ? 1 : 0,
-              pointerEvents: menuOpen ? "auto" : "none",
-              transition: "opacity 0.25s ease",
+              pointerEvents: menuOpen ? 'auto' : 'none',
+              transition: 'opacity 0.25s ease',
               zIndex: 90,
             }}
           />
           <div
             ref={menuRef}
             style={{
-              position: "fixed",
+              position: 'fixed',
               top: 0,
               right: 0,
-              height: "100dvh",
-              width: "min(340px, 88vw)",
-              background: "#fff",
-              boxShadow: "-16px 0 40px -18px rgba(20,20,40,0.35)",
-              transform: menuOpen ? "translateX(0)" : "translateX(100%)",
-              transition: "transform 0.32s cubic-bezier(0.4,0,0.2,1)",
+              height: '100dvh',
+              width: 'min(340px, 88vw)',
+              background: '#fff',
+              boxShadow: '-16px 0 40px -18px rgba(20,20,40,0.35)',
+              transform: menuOpen ? 'translateX(0)' : 'translateX(100%)',
+              transition: 'transform 0.32s cubic-bezier(0.4,0,0.2,1)',
               zIndex: 100,
-              display: "flex",
-              flexDirection: "column",
+              display: 'flex',
+              flexDirection: 'column',
             }}
           >
             <div
               style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                padding: "14px 16px",
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '14px 16px',
                 borderBottom: `1px solid ${colors.line}`,
               }}
             >
@@ -582,7 +578,7 @@ export function ShopShell({ children }: { children: ReactNode }) {
                 style={{
                   fontSize: 13,
                   fontWeight: 800,
-                  letterSpacing: "0.06em",
+                  letterSpacing: '0.06em',
                   color: colors.navy,
                 }}
               >
@@ -593,16 +589,16 @@ export function ShopShell({ children }: { children: ReactNode }) {
                 aria-label="Close menu"
                 onClick={() => setMenuOpen(false)}
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   width: 36,
                   height: 36,
                   border: 0,
                   background: colors.soft,
                   borderRadius: 10,
                   color: colors.navy,
-                  cursor: "pointer",
+                  cursor: 'pointer',
                 }}
               >
                 <X size={18} />
@@ -611,8 +607,8 @@ export function ShopShell({ children }: { children: ReactNode }) {
 
             <div
               style={{
-                padding: "8px 16px 20px",
-                overflowY: "auto",
+                padding: '8px 16px 20px',
+                overflowY: 'auto',
                 flex: 1,
               }}
             >
@@ -632,12 +628,12 @@ export function ShopShell({ children }: { children: ReactNode }) {
                 href="/order-lookup"
                 onClick={() => setMenuOpen(false)}
                 style={{
-                  display: "block",
-                  padding: "14px 4px",
+                  display: 'block',
+                  padding: '14px 4px',
                   fontSize: 15,
                   fontWeight: 600,
                   color: colors.navy,
-                  textDecoration: "none",
+                  textDecoration: 'none',
                   borderBottom: `1px solid ${colors.line}`,
                 }}
               >
@@ -647,14 +643,14 @@ export function ShopShell({ children }: { children: ReactNode }) {
                 href="/cart"
                 onClick={() => setMenuOpen(false)}
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  padding: "14px 4px",
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '14px 4px',
                   fontSize: 15,
                   fontWeight: 600,
                   color: colors.navy,
-                  textDecoration: "none",
+                  textDecoration: 'none',
                   borderBottom: `1px solid ${colors.line}`,
                 }}
               >
@@ -663,14 +659,14 @@ export function ShopShell({ children }: { children: ReactNode }) {
                   style={{
                     minWidth: 22,
                     height: 22,
-                    padding: "0 7px",
+                    padding: '0 7px',
                     borderRadius: 999,
                     background: colors.red,
-                    color: "#fff",
+                    color: '#fff',
                     fontSize: 11,
                     fontWeight: 700,
-                    lineHeight: "22px",
-                    textAlign: "center",
+                    lineHeight: '22px',
+                    textAlign: 'center',
                   }}
                 >
                   {count}
@@ -680,13 +676,13 @@ export function ShopShell({ children }: { children: ReactNode }) {
 
             <div
               style={{
-                padding: "14px 16px",
+                padding: '14px 16px',
                 borderTop: `1px solid ${colors.line}`,
                 background: colors.soft,
                 fontSize: 12,
                 color: colors.muted,
-                display: "flex",
-                alignItems: "center",
+                display: 'flex',
+                alignItems: 'center',
                 gap: 6,
               }}
             >
@@ -700,17 +696,17 @@ export function ShopShell({ children }: { children: ReactNode }) {
       <main>{children}</main>
 
       <footer
-        style={{ marginTop: 40, background: colors.navy, color: "#e6e8ef" }}
+        style={{ marginTop: 40, background: colors.navy, color: '#e6e8ef' }}
       >
         <div
           style={{
             maxWidth: 1200,
-            margin: "0 auto",
-            padding: "36px 24px",
-            display: "grid",
-            gridTemplateColumns: isMobile ? "1fr" : "1fr auto",
+            margin: '0 auto',
+            padding: '36px 24px',
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : '1fr auto',
             gap: 24,
-            alignItems: "start",
+            alignItems: 'start',
           }}
         >
           <div>
@@ -718,19 +714,19 @@ export function ShopShell({ children }: { children: ReactNode }) {
               style={{
                 fontSize: 13,
                 fontWeight: 800,
-                letterSpacing: "0.06em",
+                letterSpacing: '0.06em',
                 marginBottom: 10,
-                color: "#fff",
+                color: '#fff',
               }}
             >
               VISHWA ENTERPRISES JNP
             </div>
             <p
               style={{
-                margin: "0 0 6px",
+                margin: '0 0 6px',
                 fontSize: 12.5,
-                display: "flex",
-                alignItems: "center",
+                display: 'flex',
+                alignItems: 'center',
                 gap: 6,
               }}
             >
@@ -741,34 +737,22 @@ export function ShopShell({ children }: { children: ReactNode }) {
             </p>
           </div>
 
-          <div style={{ display: "flex", gap: 22, flexWrap: "wrap" }}>
+          <div style={{ display: 'flex', gap: 22, flexWrap: 'wrap' }}>
             <Link
               href="/#catalog"
-              style={{
-                color: "#e6e8ef",
-                fontSize: 12.5,
-                textDecoration: "none",
-              }}
+              style={{ color: '#e6e8ef', fontSize: 12.5, textDecoration: 'none' }}
             >
               Shop collection
             </Link>
             <Link
               href="/cart"
-              style={{
-                color: "#e6e8ef",
-                fontSize: 12.5,
-                textDecoration: "none",
-              }}
+              style={{ color: '#e6e8ef', fontSize: 12.5, textDecoration: 'none' }}
             >
               Your bag
             </Link>
             <Link
               href="/order-lookup"
-              style={{
-                color: "#e6e8ef",
-                fontSize: 12.5,
-                textDecoration: "none",
-              }}
+              style={{ color: '#e6e8ef', fontSize: 12.5, textDecoration: 'none' }}
             >
               Order lookup
             </Link>

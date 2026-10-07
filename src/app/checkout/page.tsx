@@ -38,7 +38,7 @@ export default function CheckoutPage() {
     };
 
     if (!payload.lines.length) {
-      setFormError('Your Cart is empty. Add a piece before checking out.');
+      setFormError('Your bag is empty. Add a piece before checking out.');
       return;
     }
 
@@ -104,7 +104,7 @@ export default function CheckoutPage() {
           <h1 className="page-title">Checkout</h1>
         </div>
         <div className="empty-state" style={{ marginBottom: 70 }}>
-          <h2>Your Cart is empty</h2>
+          <h2>Your bag is empty</h2>
           <p>Add something you love and it will be waiting here.</p>
           <Link href="/#catalog" className="btn btn-dark">
             Browse the collection
@@ -118,7 +118,7 @@ export default function CheckoutPage() {
     <div className="container">
       <div className="page-top">
         <div className="breadcrumb">
-          <Link href="/cart">Your Cart</Link> / Checkout
+          <Link href="/cart">Your bag</Link> / Checkout
         </div>
         <h1 className="page-title">Delivery details</h1>
         <p className="page-subtitle">
@@ -284,7 +284,7 @@ export default function CheckoutPage() {
             fulfillment.
           </p>
           <Link href="/cart" className="text-link" style={{ fontSize: 12 }}>
-            Edit your Cart
+            Edit your bag
           </Link>
         </aside>
       </div>
