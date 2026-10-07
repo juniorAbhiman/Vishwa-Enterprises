@@ -450,22 +450,18 @@ export function ShopShell({ children }: { children: ReactNode }) {
               gap: 6,
             }}
           >
-            <Link
-              href="/#catalog"
-              aria-label="Search products"
-              style={iconLinkStyle}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.background = colors.soft)
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.background = 'transparent')
-              }
-            >
-              <span style={iconBoxStyle}>
-                <Search size={18} />
-              </span>
-              {!isMobile && <span>Search</span>}
-            </Link>
+<Link
+  href="/search"
+  aria-label="Search products"
+  style={iconLinkStyle}
+  onMouseEnter={(e) => (e.currentTarget.style.background = colors.soft)}
+  onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+>
+  <span style={iconBoxStyle}>
+    <Search size={18} />
+  </span>
+  {!isMobile && <span>Search</span>}
+</Link>
 
             <Link
               href="/cart"
